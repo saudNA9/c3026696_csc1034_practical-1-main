@@ -34,11 +34,6 @@ class WalkingPanda(ShowBase):
         self.pandaActor.setScale(scale, scale, scale)
         self.pandaActor.reparentTo(self.render)
 
-        # Load and transform the panda actor.
-        self.pandaAct3or = Actor("models/panda-model",
-                                {"walk": "models/panda-walk4"})
-        self.pandaActor.setScale(0.005, 0.005, 0.005)
-        self.pandaActor.reparentTo(self.render)
         # Loop its animation.
         self.pandaActor.loop("walk")
 
