@@ -11,6 +11,9 @@ def cli():
                         )
     parser.add_argument("--scale-nature", type=float, help="Scale Nature Size",
                         )
+    parser.add_argument("--nature-position", type=str, help="Change Nature Position",
+                        choices=['left', 'right'],
+                        )
     args = parser.parse_args()
 
     walking = panda.WalkingPanda(**vars(args))
