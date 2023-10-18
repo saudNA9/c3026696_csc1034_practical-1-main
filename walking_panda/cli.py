@@ -14,6 +14,8 @@ def cli():
     parser.add_argument("--nature-position", type=str, help="Change Nature Position",
                         choices=['left', 'right'],
                         )
+    parser.add_argument("--panda-jogging", type=float, help="Panda Speed Control",
+                        )
     args = parser.parse_args()
 
     walking = panda.WalkingPanda(**vars(args))
