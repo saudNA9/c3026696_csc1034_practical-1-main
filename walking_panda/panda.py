@@ -63,6 +63,11 @@ class WalkingPanda(ShowBase):
        # Change the play rate
        self.pandaActor.setPlayRate(panda_jogging, "walk")
 
+        # Play panda sound
+        pandaSound = self.loader.loadSfx("Panda_Sound.wav")
+        pandaSound.setLoop(True)
+        pandaSound.play()
+
     # Define a procedure to move the camera.
     def spinCameraTask(self, task):
         angleDegrees = task.time * 6.0
