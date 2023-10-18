@@ -9,6 +9,8 @@ def cli():
                         action="store_true")
     parser.add_argument("--scale", type=int, help="Scale Panda Size",
                         )
+    parser.add_argument("--scale-nature", type=float, help="Scale Nature Size",
+                        )
     args = parser.parse_args()
 
     walking = panda.WalkingPanda(**vars(args))
