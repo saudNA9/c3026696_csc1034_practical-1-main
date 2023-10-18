@@ -5,7 +5,7 @@ from direct.task import Task
 from direct.actor.Actor import Actor
 
 class WalkingPanda(ShowBase):
-    def __init__(self, scale, scale_nature, nature_position, no_rotate=False):
+    def __init__(self, scale, scale_nature, nature_position, panda_jogging, no_rotate=False):
         ShowBase.__init__(self)
 
         # Load the environment model.
@@ -34,6 +34,9 @@ class WalkingPanda(ShowBase):
         else:
             nature_position = [-6, 40, 0]
 
+        if panda_jogging == None:
+            panda_jogging = 1
+
         # Load the nature model.
         self.scene = self.loader.loadModel("models/nature")
         # Reparent the model to render.
@@ -56,6 +59,9 @@ class WalkingPanda(ShowBase):
 
         # Loop its animation.
         self.pandaActor.loop("walk")
+
+       # Change the play rate
+       self.pandaActor.setPlayRate(panda_jogging, "walk")
 
     # Define a procedure to move the camera.
     def spinCameraTask(self, task):
