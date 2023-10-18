@@ -5,7 +5,7 @@ from direct.task import Task
 from direct.actor.Actor import Actor
 
 class WalkingPanda(ShowBase):
-    def __init__(self, scale, no_rotate=False):
+    def __init__(self, scale, scale_nature, no_rotate=False):
         ShowBase.__init__(self)
 
         # Load the environment model.
@@ -21,6 +21,17 @@ class WalkingPanda(ShowBase):
                 scale = 0.008
         else:
             scale = 0.004
+
+        if scale_nature == None:
+            scale_nature = 0.20
+
+        # Load the nature model.
+        self.scene = self.loader.loadModel("models/nature")
+        # Reparent the model to render.
+        self.scene.reparentTo(self.render)
+        # Apply scale and position transforms on the model.
+         self.scene.setScale(scale_nature, scale_nature, scale_nature)
+         self.scene.setPos(nature_position[0], nature_position[1], nature_position[2])
 
         if no_rotate==False:
             # Add the spinCameraTask procedure to the task manager.
