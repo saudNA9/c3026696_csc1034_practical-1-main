@@ -63,6 +63,11 @@ class WalkingPanda(ShowBase):
        # Change the play rate
        self.pandaActor.setPlayRate(panda_jogging, "walk")
 
+        # Play Forest sound
+        natureSound = self.loader.loadSfx("Forest_sound.wav")
+        natureSound.setLoop(True)
+        natureSound.play()
+
         # Play panda sound
         pandaSound = self.loader.loadSfx("Panda_Sound.wav")
         pandaSound.setLoop(True)
