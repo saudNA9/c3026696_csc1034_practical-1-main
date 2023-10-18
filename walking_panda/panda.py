@@ -5,7 +5,7 @@ from direct.task import Task
 from direct.actor.Actor import Actor
 
 class WalkingPanda(ShowBase):
-    def __init__(self, scale, scale_nature, no_rotate=False):
+    def __init__(self, scale, scale_nature, nature_position, no_rotate=False):
         ShowBase.__init__(self)
 
         # Load the environment model.
@@ -24,6 +24,15 @@ class WalkingPanda(ShowBase):
 
         if scale_nature == None:
             scale_nature = 0.20
+
+        if nature_position != None:
+            if nature_position == "left":
+                nature_position = [8, 40, 0]
+
+            if nature_position == "right":
+                nature_position = [-16, 40, 0]
+        else:
+            nature_position = [-6, 40, 0]
 
         # Load the nature model.
         self.scene = self.loader.loadModel("models/nature")
